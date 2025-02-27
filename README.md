@@ -84,25 +84,55 @@ Ademas de las utilizadas en **requirements.txt**
 #
 ## **Instalación del Proyecto RecyclytingAI-Grup4**
 
-#### 1. Crea una carpeta en escritorio con el nombre que tu desees
+### 📂 1. Crear una Carpeta en el Escritorio
+Crea una carpeta en tu escritorio con el nombre que prefieras.
 
-#### 2. Abre VS code --> click derecho dentro de la carpeta, click en "Abrir en Terminal"", escribe "code . " 
+### 🧑‍💻 2. Abrir la Carpeta en VS Code
+1. Abre **VS Code**.
+2. Haz clic derecho dentro de la carpeta creada y selecciona **"Abrir en Terminal"**.
+3. En la terminal, escribe el siguiente comando y presiona **Enter**:
 
-#### 3. Clonar el repositorio - control + mayuscula + p, click en "Git: Clone", pega:
+```bash
+code .
+```
 
- https://github.com/julianamedinaa/RecyclytingAI-Grup4.git
+### 🔗 3. Clonar el Repositorio
+1. Abre la paleta de comandos con **Control + Shift + P**.
+2. Escribe **"Git: Clone"** y selecciónalo.
+3. Pega la siguiente URL del repositorio:
 
-#### 4. En powershell intalar UV: pip install uv
+```bash
+https://github.com/julianamedinaa/Recyclyticai-Grupo4
+```
 
-#### 5. Ejecuta el proyecto en la terminal de VS o en powershell con el siguiente comando: uv run main.py
+### 📁 4. Acceder a la Carpeta del Proyecto
+Navega a la carpeta clonada con el siguiente comando:
 
-#### 6. para construir y ejecutar el contenedor del Docker usa los siguintes comandos
+```bash
+cd Recyclyticai-Grupo4
+```
 
-cd RecyclytingAI-Grup4
+### 🛠️ 5. Construir la Imagen de Docker
+Ejecuta el siguiente comando para construir la imagen Docker del proyecto:
 
+```bash
 docker build -t recyclyticai .
-     
+```
+
+### 🚦 6. Ejecutar el Proyecto Localmente
+Una vez que las librerías se hayan instalado correctamente según el archivo **Requirements.txt**, ejecuta el proyecto localmente con el comando:
+
+```bash
+uv run main.py
+```
+
+### 📦 7. Construir y Ejecutar el Contenedor de Docker
+Para ejecutar el contenedor Docker, usa los siguientes comandos:
+
+```bash
 docker run -it --rm --device=/dev/video0 recyclyticai /bin/bash
+```
+
 
 
 
