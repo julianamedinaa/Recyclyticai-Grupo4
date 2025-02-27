@@ -1,0 +1,33 @@
+# Ignorar entornos virtuales
+.venv
+env/
+venv/
+
+# Ignorar archivos y carpetas del sistema operativo
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# Ignorar configuraciones de IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignorar archivos de git
+.git
+.gitignore
+.gitattributes
+
+# Ignorar archivos sensibles
+*.env
+.env.*
+
+# Ignorar carpetas de modelos grandes si no son necesarios en la imagen Docker
+Modelos/
+setUp/
+
+# Ignorar otros archivos innecesarios
+*.log
+*.sqlite3
+*.db

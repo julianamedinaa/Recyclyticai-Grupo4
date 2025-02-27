@@ -11,7 +11,7 @@ from datetime import datetime
 import pyautogui
 
 def clean_lbl():
-    # Clean
+    """Clear the image labels."""
     lblimg.config(image='')
     lblimgtxt.config(image='')
 
@@ -19,7 +19,7 @@ def images(img, imgtxt):
     img = img
     imgtxt = imgtxt
 
-    # Img Detect
+    """Update the displayed images."""
     img = np.array(img, dtype="uint8")
     img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     img = Image.fromarray(img)
@@ -54,11 +54,14 @@ def Scanning():
 
     # Read VideoCapture
     if cap is not None:
-        ret, frame = cap.read()
-        frame_show =cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+     ret, frame = cap.read()
+     if not ret or frame is None:
+        print("⚠️ No se pudo leer un frame de la cámara.")
+        return
+     frame_show = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
         # True
-        if ret == True:
+     if ret == True:
             # Yolo | Procesar el frame
             results = model(frame, stream=True, verbose=False)
             for res in results:
@@ -179,7 +182,7 @@ def Scanning():
             lblVideo.image = img
             lblVideo.after(10, Scanning)
 
-        else:
+    else:
             cap.release()
  
 # Tomar Captura 

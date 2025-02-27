@@ -1,3 +1,6 @@
+---
+license: apache-2.0
+---
 #  **RECYCLYTIC AI** 
 
 ### **Nombres:**
@@ -20,18 +23,15 @@ El reciclaje suele dividirse en tres etapas:
 
 **Fabricación de nuevos productos:** Con las materias primas recicladas se crean nuevos objetos, como botellas, papel, ropa o incluso materiales de construcción.
 
-  ![image](https://github.com/user-attachments/assets/fbadf4d8-2708-47df-b7b4-67710ed93743)
-
-
+  ![image](https://github.com/user-attachments/assets/f11ba0a5-10af-4bb1-83db-8ccc31fd32d5)
 
 #
 
 ### **¿Qué es la RECYCLYTIC AI?**
 
-**RECYCLYTIC AI** es un sistema de clasificación automatizada con el propósito de optimizar la separacion de residuos reciclables en la empresa ECOOReciclaje S.A.S., mejorando la eficiencia operativa y reduciendo errores en el proceso de separación de materiales.
+**RECYCLYTIC AI** es la propuesta de un sistema de clasificación automatizada con el propósito de optimizar la separacion de residuos reciclables en la empresa ECOOReciclaje S.A.S., mejorando la eficiencia operativa y reduciendo errores en el proceso de separación de materiales.
 
- ![image](https://github.com/user-attachments/assets/281d4bfe-0d91-46b7-89c4-4d263e4b26cc)
-
+![image](https://github.com/user-attachments/assets/281d4bfe-0d91-46b7-89c4-4d263e4b26cc)
 #
 
 ### **Propósito y Funcionalidades Principales**
@@ -45,15 +45,69 @@ En condiciones de poca luz, el modelo puede presentar errores debido al ruido en
 
 Antes de instalar y ejecutar el proyecto, asegúrate de cumplir con los siguientes requisitos:
 
-#### **Sistema operativo**
-- Windows 10/11
-
 ### **Dependencias y librerias necesarias**
 
-**ESPERAR A JESSI*
+### **- Restricciones de Software:**
 
+#### **Sistema operativo**
+- Windows 10/11
+- mac
+- linux
 
+### **licencias**
+Este proyecto se distribuye bajo la licencia mit
+license APACHE 2.0
+
+**Bibliotecas requeridas:**
+- python 3.10+
+- tkinter
+- PIL (Pillow)
+- imutils
+- OpenCV
+- numpy
+- ultralytics (YOLO)
+- math
+- os
+- datetime 
+- pyautogui 
 Ademas de las utilizadas en **requirements.txt**
+
+### **- Restricciones de Hardware:**
+
+**Procesamiento en tiempo real:**
+- CPU de alto rendimiento
+- la versión correspondiente de ultralytics instalada
+- procesador de 4 nucleos y 2GHz o superior
+- 8GB ram o mas
+- camara web HD 720p o maximo 4k
+
+#
+## **Instalación del Proyecto RecyclytingAI-Grup4**
+
+#### 1. Crea una carpeta en escritorio con el nombre que tu desees
+
+#### 2. Abre VS code --> click derecho dentro de la carpeta, click en "Abrir en Terminal"", escribe "code . " 
+
+#### 3. Clonar el repositorio - control + mayuscula + p, click en "Git: Clone", pega:
+
+ https://github.com/julianamedinaa/RecyclytingAI-Grup4.git
+
+#### 4. En powershell intalar UV: pip install uv
+
+#### 5. Ejecuta el proyecto en la terminal de VS o en powershell con el siguiente comando: uv run main.py
+
+#### 6. para construir y ejecutar el contenedor del Docker usa los siguintes comandos
+
+cd RecyclytingAI-Grup4
+
+docker build -t recyclyticai .
+     
+docker run -it --rm --device=/dev/video0 recyclyticai /bin/bash
+
+
+
+
+
 
 
 

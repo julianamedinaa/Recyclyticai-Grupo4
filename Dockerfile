@@ -1,24 +1,26 @@
-# Usar una imagen base oficial de Python 3.10
-FROM python:3.10
+# Usar una imagen ligera oficial de Python 3.10 para reducir el tamaño del contenedor
+FROM python:3.10-slim
 
-# Establecer el directorio de trabajo dentro del contenedor
+# Instalar las dependencias del sistema necesarias para la interfaz gráfica (Tkinter) y la compatibilidad con OpenCV
+RUN apt-get update && \
+    apt-get install -y \
+    python3-tk \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libgl1-mesa-glx \
+    libsm6 \
+    libxext6 \
+    libxrender1 && \
+    rm -rf /var/lib/apt/lists/*
+
+# Establecer el directorio de trabajo dentro del contenedor donde se ejecutará la aplicación
 WORKDIR /app
 
-# Instalar las librerías del sistema necesarias para OpenCV, Xvfb y utilidades X11
-RUN apt-get update && \
-    apt-get install -y libgl1 libglib2.0-0 xvfb x11-xserver-utils
+# Copiar todos los archivos del proyecto actual al directorio de trabajo en el contenedor
+COPY . /app
 
-# Copiar el archivo de requerimientos al contenedor
-COPY requirements.txt .
+# Instalar las dependencias de Python especificadas en requirements.txt sin almacenar caché
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Instalar las dependencias del proyecto
-RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
-
-# Copiar el resto de los archivos del proyecto al contenedor
-COPY . .
-
-# Establecer la variable de entorno para el servidor X virtual
-ENV DISPLAY=:99
-
-# Iniciar Xvfb con autenticación y ejecutar la aplicación
-CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768x16 & touch /root/.Xauthority && python main.py"]
+# Establecer el comando predeterminado para iniciar la aplicación al ejecutar el contenedor
+CMD ["python", "main.py"]
